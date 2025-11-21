@@ -4,11 +4,7 @@ import { MODEL, MODERATION_DENIAL_MESSAGE } from '@/config';
 import { SYSTEM_PROMPT } from '@/prompts';
 import { isContentFlagged } from '@/lib/moderation';
 import { webSearch } from './tools/web-search';
-import { readNotebookLecture } from './tools/read-notebook-lecture';
-import { readSlideLecture } from './tools/read-slide-lecture';
-import { readSyllabus } from './tools/read-syllabus';
-import { readAssignment } from './tools/read-assignment';
-import { readAssignedReading } from './tools/read-assigned-reading';
+import { vectorDatabaseSearch } from './tools/search-vector-database';
 
 export const maxDuration = 30;
 export async function POST(req: Request) {
@@ -69,11 +65,7 @@ export async function POST(req: Request) {
         messages: convertToModelMessages(messages),
         tools: {
             webSearch,
-            readNotebookLecture,
-            readSlideLecture,
-            readSyllabus,
-            readAssignment,
-            readAssignedReading,
+            vectorDatabaseSearch,
         },
         stopWhen: stepCountIs(10),
         providerOptions: {

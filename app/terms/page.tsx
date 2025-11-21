@@ -1,5 +1,6 @@
 import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
+import { OWNER_NAME } from "@/config";
 
 export default function Terms() {
     return (
@@ -12,13 +13,13 @@ export default function Terms() {
                     <ArrowLeftIcon className="w-4 h-4" />
                     Back to Chatbot
                 </Link>
-                <h1 className="text-3xl font-bold">Bit AI Assistant</h1>
+                <h1 className="text-3xl font-bold">MyAI3</h1>
                 <h2 className="text-2xl font-semibold">Terms of Use / Disclaimer</h2>
 
                 <p className="text-gray-700">
-                    The following terms of use govern access to and use of the Bit AI
+                    The following terms of use govern access to and use of the MyAI3
                     Assistant ("AI Chatbot"), an artificial intelligence tool provided by
-                    Daniel Ringel ("I", "me", or "myself"). By engaging with the AI
+                    {OWNER_NAME} ("I", "me", or "myself"). By engaging with the AI
                     Chatbot, you agree to these terms. If you do not agree, you may not
                     use the AI Chatbot.
                 </p>
@@ -28,15 +29,15 @@ export default function Terms() {
                     <ol className="list-decimal list-inside space-y-3">
                         <li className="text-gray-700">
                             <span className="font-semibold">Provider and Purpose:</span> The
-                            AI Chatbot is a tool developed and maintained by Daniel Ringel. It
+                            AI Chatbot is a tool developed and maintained by {OWNER_NAME}. It
                             is intended solely to assist users with questions and coursework
-                            related to courses taught by Daniel Ringel. The AI Chatbot is not
-                            affiliated with, endorsed by, or operated by the BITS School of Management (BitSOM).
+                            related to courses taught by {OWNER_NAME}. The AI Chatbot is not
+                            affiliated with, endorsed by, or operated by the course provider.
                         </li>
                         <li className="text-gray-700">
                             <span className="font-semibold">Third-Party Involvement:</span>{" "}
                             The AI Chatbot utilizes multiple third-party platforms and
-                            vendors, some of which operate outside the United States and India. Your
+                            vendors, some of which operate outside the United States. Your
                             inputs may be transmitted, processed, and stored by these
                             third-party systems. As such, confidentiality, security, and privacy
                             cannot be guaranteed, and data transmission may be inherently
@@ -61,12 +62,12 @@ export default function Terms() {
                             the fullest extent permitted by law:
                             <ul className="list-disc list-inside ml-6 mt-2 space-y-2">
                                 <li>
-                                    Daniel Ringel disclaims all warranties, express or implied,
+                                    {OWNER_NAME} disclaims all warranties, express or implied,
                                     including but not limited to warranties of merchantability,
                                     fitness for a particular purpose, and non-infringement.
                                 </li>
                                 <li>
-                                    Daniel Ringel is not liable for any errors, inaccuracies, or
+                                    {OWNER_NAME} is not liable for any errors, inaccuracies, or
                                     omissions in the information provided by the AI Chatbot.
                                 </li>
                             </ul>
@@ -75,7 +76,7 @@ export default function Terms() {
                             <span className="font-semibold">
                                 No Responsibility for Damages:
                             </span>{" "}
-                            Under no circumstances shall Daniel Ringel, his collaborators,
+                            Under no circumstances shall {OWNER_NAME}, his collaborators,
                             partners, affiliated entities, or representatives be liable for
                             any direct, indirect, incidental, consequential, special, or
                             punitive damages arising out of or in connection with the use of
@@ -123,7 +124,7 @@ export default function Terms() {
                             <span className="font-semibold">No Privacy Guarantee:</span> The
                             AI Chatbot does not guarantee privacy, confidentiality, or
                             security of the information you provide. Conversations may be
-                            reviewed by Daniel Ringel, collaborators, partners, or affiliated
+                            reviewed by {OWNER_NAME}, collaborators, partners, or affiliated
                             entities for purposes such as improving the AI Chatbot, developing
                             course materials, and conducting research.
                         </li>
@@ -146,12 +147,12 @@ export default function Terms() {
                             <span className="font-semibold">Surrender of Rights:</span> By
                             using the AI Chatbot, you irrevocably assign and surrender all rights,
                             title, interest, and intellectual property rights in any content, inputs
-                            you provide, and outputs generated by the AI Chatbot to Daniel Ringel.
+                            you provide, and outputs generated by the AI Chatbot to {OWNER_NAME}.
                             This includes, but is not limited to, text, questions, and conversations.
                         </li>
                         <li className="text-gray-700">
                             <span className="font-semibold">Commercial and Research Use:</span>{" "}
-                            Daniel Ringel reserves the right to use any input provided by users and
+                            {OWNER_NAME} reserves the right to use any input provided by users and
                             any output generated by the AI Chatbot for commercial purposes, research,
                             or other activities without compensation or notification to users.
                         </li>
@@ -168,7 +169,7 @@ export default function Terms() {
                     <h3 className="text-xl font-semibold">Indemnification</h3>
                     <p className="text-gray-700">
                         By using the AI Chatbot, you agree to indemnify and hold harmless
-                        Daniel Ringel, his collaborators, partners, affiliated entities, and
+                        {OWNER_NAME}, his collaborators, partners, affiliated entities, and
                         representatives from any claims, damages, losses, or liabilities
                         arising out of your use of the AI Chatbot or violation of these
                         terms.

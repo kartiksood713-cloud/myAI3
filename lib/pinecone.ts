@@ -1,6 +1,7 @@
 import { Pinecone } from '@pinecone-database/pinecone';
-import { FilterType } from '@/types/data';
+import { PINECONE_TOP_K } from '@/config';
 import { searchResultsToChunks, getSourcesFromChunks, getContextFromSources } from '@/lib/sources';
+import { PINECONE_INDEX_NAME } from '@/config';
 
 if (!process.env.PINECONE_API_KEY) {
     throw new Error('PINECONE_API_KEY is not set');
@@ -10,34 +11,23 @@ export const pinecone = new Pinecone({
     apiKey: process.env.PINECONE_API_KEY,
 });
 
-export const pineconeIndex = pinecone.Index('bit');
+export const pineconeIndex = pinecone.Index(PINECONE_INDEX_NAME);
 
-export async function readDocument(
-    filterType: FilterType,
+export async function searchPinecone(
     query: string,
-    class_no?: number
 ): Promise<string> {
-    const filter: Record<string, any> = {
-        source_type: { $eq: filterType },
-    };
-    if (class_no) {
-        filter.class_no = { $eq: `${class_no}` };
-    }
     const results = await pineconeIndex.namespace('default').searchRecords({
         query: {
             inputs: {
                 text: query,
             },
-            topK: 40,
-            filter: filter,
+            topK: PINECONE_TOP_K,
         },
-        fields: ['text', 'pre_context', 'post_context', 'source_url', 'source_description', 'source_type', 'class_no', 'order'],
+        fields: ['text', 'pre_context', 'post_context', 'source_url', 'source_description', 'source_type', 'order'],
     });
-
-    console.log(results);
 
     const chunks = searchResultsToChunks(results);
     const sources = getSourcesFromChunks(chunks);
     const context = getContextFromSources(sources);
-    return `<results>${context}</results>`;
+    return `< results > ${context} </results>`;
 }
